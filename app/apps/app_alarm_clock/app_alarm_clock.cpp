@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 #include "app_alarm_clock.h"
+#include "../app_main_menu/app_main_menu.h"
 #include <hal/hal.h>
 #include <mooncake.h>
 #include <mooncake_log.h>
@@ -69,7 +70,9 @@ void AppAlarmClock::onOpen()
     _view->btn_back->onClick().connect([&]() {
         mclog::tagInfo(getAppInfo().name, "Going back to main menu");
         close();
-        // The main menu will be opened again after startup animation
+        // Install and open main menu
+        auto app_id = GetMooncake().installApp(std::make_unique<AppMainMenu>());
+        GetMooncake().openApp(app_id);
     });
 }
 
