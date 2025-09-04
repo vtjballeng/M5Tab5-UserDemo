@@ -21,7 +21,7 @@ void AppMainMenu::View::init() {
         LvglLockGuard lock;
         
         // Set background color
-        lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x1E1E1E), LV_PART_MAIN);
+        lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x000000), LV_PART_MAIN);
         lv_obj_remove_flag(lv_screen_active(), LV_OBJ_FLAG_SCROLLABLE);
         
         // Title label
